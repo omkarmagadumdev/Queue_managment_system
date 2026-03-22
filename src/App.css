@@ -20,13 +20,13 @@ body{
 }
 .App,
 .app{
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
 }
 header{
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 header h1{
@@ -41,8 +41,8 @@ header p{
 
 main{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 420px 1fr;
+  gap: 1.75rem;
   align-items: start;
 }
 
@@ -52,6 +52,15 @@ main{
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid var(--border);
+}
+
+.queue-form h2{
+  color: var(--primary);
+}
+
+.queue-display-title{
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
 }
 
 h2{
@@ -153,6 +162,9 @@ button:active{
 }
 .serve-btn{
   background-color: var(--success);
+}
+.remove-btn{
+  background-color: var(--error);
 }
 @media(max-width:768px){
   .App,

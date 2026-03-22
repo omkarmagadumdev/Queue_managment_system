@@ -1,17 +1,22 @@
 import "./App.css"
 import { useState } from "react"
 import QueueForm from "./components/QueueForm"
+import QueueDisplay from "./components/QueueDisplay"
+
 export default function App(){
   const [queue,setQueue] = useState([])
 
   const addToQueue = (customer)=>{
+      setQueue([...queue,{...customer,id:Date.now(),status:"waiting"}]);
 
   }
   const updateStatus = (id,newStatus)=>{
-
+            setQueue(queue.map(customer=>
+              customer.id === id ? {...customer,status:newStatus}: customer
+            ))
   }
   const removeFromQueue = (id)=>{
-//todo
+    setQueue(queue.filter(customer => customer.id !== id))
   };
 
 
@@ -23,8 +28,11 @@ export default function App(){
       </header>
       <main>
         <QueueForm onAdd={addToQueue} />
-        <h1>QueueForm</h1>
-        <h1>QueueDisplay</h1>
+        <QueueDisplay
+        queue={queue}
+        onUpdateStatus={updateStatus}
+        onRemove={removeFromQueue}
+        />
       </main>
     </div> 
   )
